@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JenisKendaraan extends Model
+class WarnaKendaraanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'jenis_kendaraan';
+    protected $table            = 'warnakendaraan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

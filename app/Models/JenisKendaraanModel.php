@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Pelanggan extends Model
+class JenisKendaraanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'pelanggan';
+    protected $table            = 'jeniskendaraan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -17,7 +17,7 @@ class Pelanggan extends Model
     protected $allowedFields    = [];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
