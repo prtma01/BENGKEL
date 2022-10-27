@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use CodeIgniter\Router\RouteCollection;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -37,6 +39,32 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->group('pelanggan', function(RouteCollection $routes){
+    $routes->get('/', 'PelangganController::index');
+    $routes->post('/', 'PelangganController::store');
+    $routes->patch('/', 'PelangganController::update');
+    $routes->delete('/', 'PelangganController::delete');
+    $routes->get('(:num)', 'PelangganController::show/$1');
+    $routes->get('all', 'PelangganController::all');
+});
+
+$routes->group('jeniskendaraan', function(RouteCollection $routes){
+    $routes->get('/', 'JenisKendaraanController::index');
+    $routes->post('/', 'JenisKendaraanController::store');
+    $routes->patch('/', 'JenisKendaraanController::update');
+    $routes->delete('/', 'JenisKendaraanController::delete');
+    $routes->get('(:num)', 'JenisKendaraanController::show/$1');
+    $routes->get('all', 'JenisKendaraanController::all');
+});
+
+$routes->group('warnakendaraan', function(RouteCollection $routes){
+    $routes->get('/', 'WarnaKendaraanController::index');
+    $routes->post('/', 'WarnaKendaraanController::store');
+    $routes->patch('/', 'WarnaKendaraanController::update');
+    $routes->delete('/', 'WarnaKendaraanController::delete');
+    $routes->get('(:num)', 'WarnaKendaraanController::show/$1');
+    $routes->get('all', 'WarnaKendaraanController::all');
+});
 /*
  * --------------------------------------------------------------------
  * Additional Routing
