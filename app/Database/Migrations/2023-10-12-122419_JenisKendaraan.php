@@ -14,11 +14,11 @@ class JenisKendaraan extends Migration
             'aktif'    => ['type'=>'enum("Y","T")' , 'null' => true  ],
         ]);
         $this->forge->addPrimaryKey('id');
-       $this->forge->createTable('Jeniskendaraan'); 
+       $this->forge->createTable('jeniskendaraan'); 
     }
 
     public function down()
     {
-        $this->forge->dropTable('Jeniskendaraan');
+        $this->forge->dropTable('jeniskendaraan');
     }
 }

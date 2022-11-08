@@ -11,15 +11,15 @@ class PelangganSeeder extends Seeder
     public function run()
     {
         $id = (new ModelsPelangganModel())->insert([
-            'nama_depan' => 'Ridiculam',
-            'nama_belakang' => 'Heist',
+            'nama_depan' => 'Rino',
+            'nama_belakang' => 'Hasbullah',
             'gender' => 'L',
-            'alamat' => 'Jl.Morningstar Gg.Aqua block B.24',
-            'kota' => 'Paris',
-            'notelp' => '+628 5386 7913',
-            'hp' => 'Xiaomi',
-            'email' => 'morningstar@gmail.com',
-            'tgl_daftar' => '11-09-2002',
+            'alamat' => 'Jl.ninaja Gg.guaja block B.12',
+            'kota' => 'Bandung',
+            'notelp' => '+628 7652 4231',
+            'hp' => 'Samsung Galaxy Duos',
+            'email' => 'hasbullasilalahi@gmail.com',
+            'tgl_daftar' => '11-09-2001',
         ]);
         echo "hasil id = $id";
     }

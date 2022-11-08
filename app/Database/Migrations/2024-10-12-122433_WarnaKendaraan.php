@@ -13,11 +13,11 @@ class WarnaKendaraan extends Migration
             'warna'    => ['type'=>'varchar', 'constraint' => 100 , 'null' => false  ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('WarnaKendaraan');
+        $this->forge->createTable('warnakendaraan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('WarnaKendaraan');
+        $this->forge->dropTable('warnakendaraan');
     }
 }

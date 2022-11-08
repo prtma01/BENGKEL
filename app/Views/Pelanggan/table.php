@@ -18,8 +18,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Gender</th>
-                            <th>Alamat</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -41,20 +39,6 @@
                                 <label class="form-label">Nama</label>
                                 <input type="text" name="nama_depan" class="form-control">
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Gender</label>
-                                <select name="gender" class="form-control">
-                                    <option>Jenis Kelamin</option>
-                                    <option value="L">Laki-laki</option>
-                                    <option value="P">Perempuan</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Alamat</label>
-                                <input type="text" name="alamat" class="form-control">
-                            </div>
-                        </form>
-                        </div>
                         <div class="modal-footer">
                             <button class="btn btn-success" id="btn-menambahkan" >Menambahkan</button>
                         </div>
@@ -106,8 +90,6 @@
             $.get(`${baseurl}/pelanggan/${id}`).done((e)=>{
                 $('input[name=id]').val(e.id);
                 $('input[name=nama_depan]').val(e.nama_depan);
-                $('input[name=gender]').val(e.gender);
-                $('input[name=alamat]').val(e.alamat);
                 $('#modalForm').modal('show');
                 $('input[name=_method]').val('patch');
 
@@ -142,18 +124,6 @@
                     }
                 },
                 {data: 'nama_depan',},
-                {data: 'gender',
-                    render: (data,type,row,meta)=>{
-                        if(data === 'L'){
-                            return 'Laki-laki';
-                        }
-                        else if(data === 'P'){
-                            return 'Perempuan';
-                        }
-                        return data;
-                    }
-                },
-                {data: 'alamat',},
                 {data: 'id',
                     render: (data,type,meta,row)=>{
                         var btnEdit     = `<button class='btn btn-light' data-id='${data}'> Edit</button>`;

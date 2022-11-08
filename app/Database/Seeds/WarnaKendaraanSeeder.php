@@ -12,7 +12,7 @@ class WarnaKendaraanSeeder extends Seeder
     public function run()
     {
         $id = (new ModelsWarnaKendaraanModel())->insert([
-            'warna' => 'Biru',
+            'warna' => 'Hijau',
         ]);
         echo "hasil id = $id";
     }

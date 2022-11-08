@@ -12,7 +12,7 @@ class JenisKendaraanSeeder extends Seeder
     public function run()
     {
         $id = (new ModelsJenisKendaraanModel())->insert([
-            'jenis' => 'Nmax',
+            'jenis' => 'Sedan',
             'aktif' => 'Y',
         ]);
         echo "hasil id = $id";

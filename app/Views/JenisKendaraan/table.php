@@ -18,7 +18,6 @@
                         <tr>
                             <th>No</th>
                             <th>Jenis</th>
-                            <th>Aktif</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -39,14 +38,6 @@
                             <div class="mb-3">
                                 <label class="form-label">Jenis</label>
                                 <input type="text" name="jenis" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Aktif</label>
-                                <select name="aktif" class="form-control">
-                                    <option>Aktif/Tidak</option>
-                                    <option value="Y">YA</option>
-                                    <option value="T">TIDAK</option>
-                                </select>
                             </div>
                         </form>
                         </div>
@@ -98,10 +89,9 @@
         $('table#table-JenisKendaraan').on('click', '.btn-light', function (){
             let id = $(this).data('id');
             let baseurl = "<?=base_url()?>";
-            $.get(`${baseurl}/pelanggan/${id}`).done((e)=>{
+            $.get(`${baseurl}/jeniskendaraan/${id}`).done((e)=>{
                 $('input[name=id]').val(e.id);
                 $('input[name=jenis]').val(e.jenis);
-                $('input[name=aktif]').val(e.aktif);
                 $('#modalForm').modal('show');
                 $('input[name=_method]').val('patch');
 
@@ -115,7 +105,7 @@
                 let baseurl = "<?=base_url()?>";
 
 
-                $.post(`${baseurl}/pelanggan`, {id:_id, _method:'delete'}).done(function(e){
+                $.post(`${baseurl}/jeniskendaraan`, {id:_id, _method:'delete'}).done(function(e){
                     $('table#table-JenisKendaraan').DataTable().ajax.reload();
                 });
             }
@@ -136,17 +126,6 @@
                     }
                 },
                 {data: 'jenis',},
-                {data: 'aktif',
-                    render: (data,type,row,meta)=>{
-                        if(data === 'Y'){
-                            return 'YA';
-                        }
-                        else if(data === 'T'){
-                            return 'TIDAK';
-                        }
-                        return data;
-                    }
-                },
                 {data: 'id',
                     render: (data,type,meta,row)=>{
                         var btnEdit     = `<button class='btn btn-light' data-id='${data}'> Edit</button>`;

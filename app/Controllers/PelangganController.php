@@ -4,7 +4,9 @@ namespace App\Controllers;
 use Agoenxz21\Datatables\Datatable;
 use App\Controllers\BaseController;
 use App\Models\PelangganModel;
+use CodeIgniter\Email\Email;
 use CodeIgniter\Exceptions\PageNotFoundException;
+
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -17,10 +19,10 @@ class PelangganController extends BaseController
     }
     public function all(){
         $mm = new PelangganModel();
-        $mm->select(['id', 'nama_depan', 'gender', 'alamat']);
+        $mm->select(['id', 'nama_depan']);
         
         return (new Datatable ($mm))
-                ->setFieldFilter(['nama_depan', 'gender' , 'alamat'])
+                ->setFieldFilter(['nama_depan'])
                 ->draw();
     }
     public function show($id){
@@ -34,8 +36,6 @@ class PelangganController extends BaseController
 
         $id =  $mm -> insert([
             'nama_depan'       => $this->request->getVar('nama_depan'),
-            'gender'    => $this->request->getVar('gender'),
-            'alamat'  => $this->request->getVar('alamat'),
         ]);
         return $this->response->setJSON(['id' => $id])
         ->setStatusCode(intval($id)> 0 ? 200 : 406);  
@@ -49,8 +49,6 @@ class PelangganController extends BaseController
         
         $hasil = $mm->update($id,[
             'nama_depan'       => $this->request->getVar('nama_depan'),
-            'gender'    => $this->request->getVar('gender'),
-            'alamat'  => $this->request->getVar('alamat'),
         ]);
         return $this->response->setJSON(['result'=>$hasil]);
     }

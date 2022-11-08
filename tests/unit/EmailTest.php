@@ -14,7 +14,7 @@ class EmailTest extends CIUnitTestCase{
         $email ->setFrom('rakarss11@gmail.com');
         $email ->setTo('rakasahal12@gmail.com');
         $email ->setSubject('meh');
-        $email ->setAltMessage('halo teman <b> iya sayang');
+        $email ->setAltMessage('halo teman');
 
         $this->assertTrue( $email->send() );
     }

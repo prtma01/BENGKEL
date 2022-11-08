@@ -39,4 +39,11 @@ class JenisKendaraanModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function view(){
+        return (new JenisKendaraanModel())
+                   
+       ->join('jeniskendaraan', 'jeniskendaraan.id=jeniskendaraan_id', 'left')
+       ->select('jeniskendaraan.*, jeniskendaraan.jenis');
+    }
 }

@@ -17,10 +17,10 @@ class JenisKendaraanController extends BaseController
     }
     public function all(){
         $mm = new JenisKendaraanModel();
-        $mm->select(['id', 'jenis', 'aktif']);
+        $mm->select(['id', 'jenis']);
         
         return (new Datatable ($mm))
-                ->setFieldFilter(['jenis', 'aktif'])
+                ->setFieldFilter(['jenis'])
                 ->draw();
     }
     public function show($id){
@@ -34,7 +34,6 @@ class JenisKendaraanController extends BaseController
 
         $id =  $mm -> insert([
             'jenis'       => $this->request->getVar('jenis'),
-            'aktif'    => $this->request->getVar('aktif'),
         ]);
         return $this->response->setJSON(['id' => $id])
         ->setStatusCode(intval($id)> 0 ? 200 : 406);  
@@ -48,7 +47,6 @@ class JenisKendaraanController extends BaseController
         
         $hasil = $mm->update($id,[
             'jenis'       => $this->request->getVar('jenis'),
-            'aktif'    => $this->request->getVar('aktif'),
         ]);
         return $this->response->setJSON(['result'=>$hasil]);
     }
